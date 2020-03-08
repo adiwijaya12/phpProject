@@ -10,7 +10,7 @@
                     </button>
                     <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                         <div class="navbar-nav">
-                            <a class="nav-item nav-link active" href="?page=about">TENTANG KAMI <span class="sr-only">(current)</span></a>
+                            <a class="nav-item nav-link active" href="?page=about">TENTANG KAMI Semua <span class="sr-only">(current)</span></a>
                             <a class="nav-item nav-link" href="?page=bussines">BISNIS KAMI</a>
                             <a class="nav-item nav-link" href="?page=investor ">HUBUNGI INVESTOR</a>
                             <a class="nav-item nav-link" href="?page=carier">KARIR</a>
