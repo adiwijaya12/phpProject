@@ -1,0 +1,68 @@
+1. Tampilkan Seluruh Data users
+	SELECT * FROM users
+
+2. Tampilkan Seluruh Data level
+	SELECT * FROM tb_level
+
+3. Tampilkan Seluruh Data profil
+	SELECT * FROM profil
+
+4. Tampilkan Seluruh Data users yang username nya berawalan 'bu*' dan berjenis kelamin pria
+	SELECT users.id_user, users.username, profil.id_profil,profil.nama_depan,profil.nama_belakang,
+	profil.tgl_lahir,profil.jk FROM users INNER JOIN profil ON users.id_user=profil.id_user 
+	WHERE LEFT(users.username,2)="bu" AND profil.jk="Pria"
+
+5. Tampilkan Data tabel users yang levelnya user
+	SELECT * FROM users where level=2
+
+6. Tampilkan Data tabel users yang levelnya administrator
+	SELECT * FROM users where level=1	
+
+7. Tampilkan Data tabel users yang status akunya tidak aktif
+	SELECT * FROM users where status="N"
+
+8. Tampilkan Data users yang kontaknya = null
+	SELECT users.id_user, users.username, profil.id_profil,profil.nama_depan,profil.nama_belakang,
+	profil.tgl_lahir,profil.jk,profil.alamat,profil.kontak FROM users INNER JOIN profil ON users.id_user=profil.id_user 
+	WHERE profil.kontak IS NULL
+
+9. Tampilkan Data users yang namaBelakang dan namaDepannya = null
+	SELECT users.id_user, users.username, profil.id_profil,profil.nama_depan,profil.nama_belakang,
+	profil.tgl_lahir,profil.jk,profil.alamat,profil.kontak FROM users INNER JOIN profil ON users.id_user=profil.id_user 
+	WHERE profil.nama_depan IS null	and profil.nama_belakang is null
+
+10. Tampilkan Data data users yang login terakhir pada tgl 07/03/2020
+	SELECT * from users where login_at='2020-03-07'
+
+11. Tampilkan Data users yang foto nya tidak ada
+	SELECT users.id_user, users.username, profil.id_profil,profil.nama_depan,profil.nama_belakang,
+	profil.tgl_lahir,profil.jk,profil.alamat,profil.kontak, profil.foto FROM users INNER JOIN profil ON users.id_user=profil.id_user 
+	WHERE profil.foto IS NULL
+
+12. Tampilkan Data users yang levelnya user dan berjenis kelamin perempuan
+	SELECT users.id_user, users.username,users.level,tb_level.nm_level,profil.jk from users 
+	INNER JOIN tb_level ON users.level=tb_level.kd_level INNER JOIN profil on users.id_user=profil.id_user 
+	WHERE users.level=2 and profil.jk="Wanita"
+
+13. Tampilkan Data users umurnya >= 25 Tahun dan berjenis kelamin pria
+14. Tampilkan Data users yang terakhir login lebih dari 3 bulan yang lalu dan status akunnya aktif
+15. Tampilkan Data users yang mengisi profil secara lengkap
+16. Tampilkan Data users (username, nama_depan, nama_belakang) yang jenis kelaminnya bukan Wanita
+17. Tampilkan Data users yang aktif dan levelnya user serta berjenis kelamin perempuan
+18. Tampilkan Data users (username, kontak) yang kontaknya tidak kosong
+19. Tampilkan Data users (Username, alamat) yang alamatnya tidak kosong
+20. Update data users ubah kontak menjadi 089999999 yang levelnya users
+
+21. Tambah Data users 
+	INSERT INTO `users`(`id_user`, `email`, `username`, `password`, `status`, `level`, `login_at`) 
+	VALUES (NULL,'tambahuser@gmail.com','tambah','123','Y','1','2020-03-08')
+
+22. Tambah Data profil
+	INSERT INTO `profil`(`id_profil`, `nama_depan`, `nama_belakang`, `tgl_lahir`, `jk`, `alamat`, `kontak`, `foto`, `id_user`) 
+	VALUES (NULL,'susanti','eka','2001-03-03','Wanita','alamat susanti',221111,'foto susanti',7)
+
+23. Tambah Data level
+	INSERT INTO `tb_level`(`kd_level`, `nm_level`) VALUES (NULL,'viewer')
+
+24. Delete Data Users yang idnya = 3
+25. Delete Data users yang idnya = 1 dan levelnya users serta berjenis kelamin Pria

@@ -1,0 +1,121 @@
+.main{
+    margin-bottom: 0px;
+    width: 100%;
+
+}
+
+.nwidth{
+    width: 100;
+}
+
+.btn-warning{
+    border-radius: 100px;
+    width: 161px;
+    height: 40px;
+    color: white;
+}
+
+.slider{
+    background-color: rgba(6, 6, 243, 0.863);
+    width: 100%;
+    height: auto;
+    color: white;
+    padding-top: 100px;
+}
+
+.bisniskami{
+    padding-top: 50px;
+    margin-bottom: 0px;
+}
+
+.energia{
+    margin-top: 10px;
+}
+.bisniskonten{
+    padding-top: 50px;
+}
+
+.containerku{
+    background-image:url(images/Group\ 96.png);
+    background-position-x: -250px;
+    height: 730px;
+    width: auto;
+    margin-bottom: inherit;
+    overflow-y: auto;
+
+}
+
+.garis{
+    margin-top: -50px;
+}
+
+.bgrekrut{
+    margin-top: -250px;
+}
+
+.footer1{
+    color:yellow;
+    margin-top: 200px;
+
+}
+.footer1 a{
+    color:yellow;
+}
+
+/* .gbfooter1{ */
+    /* margin-top: -360px; */
+/* } */
+
+.gbfooter1{
+    background-image: url(images/Path\ 64.png);
+    background-size: cover;
+}
+
+
+
+
+.footer2{
+    margin-top: -10px;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    width: 100%;
+    height: auto;
+}
+
+.footer2{
+    background-color: black;
+    width: 100%;
+}
+
+
+/* awal css energia hal2 */
+.energia2{
+    margin-top: 150px;
+}
+
+.textjudul h5 a{
+    color: black;
+    text-decoration: none;
+    text-align: justify;
+}
+
+
+/* awak css info rekrut1 */
+.inforekrut1{
+    padding-top: 150px;
+    margin-bottom: 400px;
+    background-color: coral;
+    height: 600px;
+}
+
+.tab-content{
+    background-color: white;
+    height: 500px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.863);
+    border: 1px solid rgb(241, 238, 238);
+    overflow: scroll;
+    
+}
+
+
