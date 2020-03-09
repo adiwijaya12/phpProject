@@ -9,7 +9,7 @@
         echo "<a href='logout.php'>Logout</a>";
         echo "<hr>";
         include "data_user.php";
-        unset($_SESSION['pesan']);
+      
     } else {
         header('location:/practice/index.php');
 

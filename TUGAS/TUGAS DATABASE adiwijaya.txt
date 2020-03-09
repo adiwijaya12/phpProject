@@ -45,13 +45,36 @@
 	WHERE users.level=2 and profil.jk="Wanita"
 
 13. Tampilkan Data users umurnya >= 25 Tahun dan berjenis kelamin pria
+	SELECT profil.id_profil,profil.nama_depan,profil.nama_belakang,profil.jk,profil.tgl_lahir,
+	timestampdiff(year,profil.tgl_lahir,CURRENT_DATE()) as umur,profil.id_user
+	from profil where timestampdiff(year,profil.tgl_lahir,CURRENT_DATE()) >=25 AND profil.jk='Pria'
+
 14. Tampilkan Data users yang terakhir login lebih dari 3 bulan yang lalu dan status akunnya aktif
+	SELECT users.id_user, users.username,users.status,users.level,timestampdiff(month,users.login_at,CURRENT_DATE()) as waktu 
+	from users where timestampdiff(month,users.login_at,CURRENT_DATE())>3 and users.status='Y'
+
 15. Tampilkan Data users yang mengisi profil secara lengkap
+	SELECT * FROM profil where nama_depan is not null and nama_belakang is not null and alamat is not null and kontak is not null and foto is not null
+
 16. Tampilkan Data users (username, nama_depan, nama_belakang) yang jenis kelaminnya bukan Wanita
+	SELECT users.username,profil.nama_depan,profil.nama_belakang,profil.jk FROM users INNER JOIN  profil on users.id_user=profil.id_user where profil.jk='Pria'
+
 17. Tampilkan Data users yang aktif dan levelnya user serta berjenis kelamin perempuan
+	SELECT users.id_user, users.username,users.status,tb_level.nm_level,profil.nama_depan,profil.nama_belakang,profil.jk 
+	FROM users INNER JOIN tb_level ON users.level=tb_level.kd_level INNER JOIN profil ON users.id_user=profil.id_user 
+	where users.status='Y' and users.level=2 AND profil.jk='Wanita'
+
 18. Tampilkan Data users (username, kontak) yang kontaknya tidak kosong
+	SELECT users.id_user,users.username,profil.kontak FROM users INNER JOIN profil 
+	on users.id_user=profil.id_user where profil.kontak is not null
+
 19. Tampilkan Data users (Username, alamat) yang alamatnya tidak kosong
+	SELECT users.id_user,users.username,profil.nama_depan,profil.nama_belakang,profil.alamat FROM users INNER JOIN profil 
+	ON users.id_user=profil.id_user WHERE profil.alamat is NOT null
+
 20. Update data users ubah kontak menjadi 089999999 yang levelnya users
+	UPDATE profil SET profil.kontak='089999999' where profil.id_user in 
+	(SELECT users.id_user FROM users where users.level=2)
 
 21. Tambah Data users 
 	INSERT INTO `users`(`id_user`, `email`, `username`, `password`, `status`, `level`, `login_at`) 
@@ -65,4 +88,16 @@
 	INSERT INTO `tb_level`(`kd_level`, `nm_level`) VALUES (NULL,'viewer')
 
 24. Delete Data Users yang idnya = 3
+	(langkah ke-1, menghapus dari tabel dimana id_user sebagai foreign key)
+	DELETE FROM profil where id_user=3
+
+	(langkah ke 2, menghapus langsung dari tabel users)
+	DELETE FROM users where id_user=3
+
 25. Delete Data users yang idnya = 1 dan levelnya users serta berjenis kelamin Pria
+	(langkah ke-1, menghapus dari tabel dimana id_user sebagai foreign key)
+	delete profil from profil INNER join users 
+	ON users.id_user=profil.id_user where users.id_user=1 AND users.level=2 and profil.jk='Pria'
+
+	(langkah ke 2, menghapus langsung dari tabel users)
+	DELETE FROM users where id_user=1 and level=2

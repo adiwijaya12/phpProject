@@ -43,11 +43,19 @@
     
 </table>
 
+
+<!-- EDIT DATA USER -->
+
+
+
 <?php
 if (isset($_SESSION ['pesan'])) {
     echo $_SESSION['pesan'];
+    unset($_SESSION['pesan']);
     // data didapat setelah proses dibawah (pemanggilan kembali)
 }
+
+//  HAPUS DATA USER
 
 if (isset($_GET['act'])) {
     if ($_GET['act']=='delete') {
@@ -58,6 +66,7 @@ if (isset($_GET['act'])) {
         if ($query == TRUE) {
             $_SESSION['pesan']='Data Berhasil Dihapus';
             header('Location: index.php');
+           
         } else
             echo "Telah terjadi kesalahan".mysqli_error($konek);
     }
