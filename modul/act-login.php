@@ -30,7 +30,7 @@
                 $_SESSION['login_at']=$nilaiarray_query['login_at'];
                 $_SESSION['id_user']=$nilaiarray_query['id_user'];
 
-                header('location:./admin/index.php');
+                header('location:admin/index.php');
             }
          
         } else {

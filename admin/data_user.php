@@ -24,7 +24,7 @@
         <td><?= $data['login_at'] ?></td>
         
         <td>
-            <a href="#">Edit</a> 
+            <a href="index.php?act=edit&id=<?=$data['id_user']?>">Edit</a> 
             <?php
                 if ($data['nm_level']=='Administrator') {
                     echo '';
@@ -45,6 +45,14 @@
 
 
 <!-- EDIT DATA USER -->
+<?php
+    if (isset($_GET['act'])) {
+        if ($_GET['act']=='edit') {
+            include 'edit-user.php';
+            echo '<hr>';
+        }
+    }
+?>
 
 
 
@@ -72,5 +80,6 @@ if (isset($_GET['act'])) {
     }
 }
 
-
 ?>
+
+<!-- EDIT PROFILE -->
