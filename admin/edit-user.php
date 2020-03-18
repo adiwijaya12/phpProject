@@ -58,7 +58,9 @@
             echo "Terjadi Kesalahan".mysqli_error();
         }
      
-    } elseif (isset($_POST['keluar'])) {
-        header('location:index.php');
+       } else {
+            if (isset($_POST['keluar'])) {
+            header('location:index.php');
+         }
     }
 ?>

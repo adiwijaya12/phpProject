@@ -68,18 +68,26 @@ if (isset($_SESSION ['pesan'])) {
 if (isset($_GET['act'])) {
     if ($_GET['act']=='delete') {
         $iduser =$_GET['id']; //mengambil nilai id_user untuk dihapus
-    
-        $sql = "DELETE FROM users where id_user='$iduser'";
-        $query = mysqli_query($konek,$sql);
+        $periksa = mysqli_query($konek,"SELECT * FROM profil WHERE profil.id_user='$iduser'");
+        $periksa2 = mysqli_num_rows($periksa);
+        if ($periksa2>0) {
+            $hpsprofil = mysqli_query($konek,"DELETE FROM profil WHERE profil.id_user='$iduser'");
+            $sql = "DELETE FROM users where id_user='$iduser'";
+            $query = mysqli_query($konek,$sql);
+           
+        } else {
+            $sql = "DELETE FROM users where id_user='$iduser'";
+            $query = mysqli_query($konek,$sql);
+        }
         if ($query == TRUE) {
             $_SESSION['pesan']='Data Berhasil Dihapus';
             header('Location: index.php');
            
         } else
-            echo "Telah terjadi kesalahan".mysqli_error($konek);
+            echo "Telah terjadi kesalahan".mysqli_error($konek); 
     }
 }
 
 ?>
 
-<!-- EDIT PROFILE -->
+
