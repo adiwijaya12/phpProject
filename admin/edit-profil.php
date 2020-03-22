@@ -56,12 +56,12 @@
     <tr>
         <th style="text-align:left;">Foto</th>
         <td>:</td>
-        <td style="background-color:grey;"><?=$editprof['foto']?></td>
+        <td><?=$editprof['foto']?></td>
     </tr>
     <tr>
         <th style="text-align:left;">Id User</th>
         <td>:</td>
-        <td style="background-color:grey;"><?=$editprof['id_user']?></td>
+        <td><?=$editprof['id_user']?></td>
     </tr>
     <tr>
         <td colspan="3">

@@ -7,7 +7,8 @@
 
     if (isset($_SESSION['username'])) {
         echo "Selamat Datang ".$_SESSION['username']."<br>";
-        echo "<a href='logout.php'>Logout</a>"; ?>
+        echo "<a href='logout.php'>Logout</a> &nbsp&nbsp<a href='index.php?act=ubahpassword'>Edit Pasword</a>";       
+        ?>
         
         <form  method ="post" action="">
         <button type="submit" name="btn-edit" style="margin-left:80%;color:red;"> Edit Profil</button>
@@ -22,7 +23,10 @@
         header('location:../index.php');
 
     }
-?>
+    if (isset($_GET['act'])=='ubahpassword') {
+      include 'ubah_password.php';
+    }
+?> 
 
 <?php
     if (isset($_POST['btn-edit'])) {
