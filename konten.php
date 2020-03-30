@@ -35,6 +35,9 @@
         case 'act-login':
         include 'modul/act-login.php';
         break;
+        case 'act-logout':
+            include 'modul/act-logout.php';
+            break;
 
 
 

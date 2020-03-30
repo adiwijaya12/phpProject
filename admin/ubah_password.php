@@ -43,7 +43,7 @@
         if ($cariquery>0) {
             $queryedit = mysqli_fetch_assoc($query1);
             if ($queryedit['password']<>$pass_lama) {
-                echo "Password Sebelumnya Tidak Sesuai";
+                echo "Password Lama Tidak Sesuai";
             } elseif ($pass_baru=='') {
                 echo "Password Baru Harus Diisi";
             } elseif ($pass_baru<>$pass_ulang) {
